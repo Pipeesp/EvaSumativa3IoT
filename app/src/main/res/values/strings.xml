@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">EvaSum IoT</string>
+    <string name="hint_nombre">Nombre</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_contrasena">Contraseña</string>
+    <string name="hint_confirmar_contrasena">Confirmar Contraseña</string>
+    <string name="btn_registrar_cuenta">Registrar Cuenta</string>
+    <string name="hint_email_usuario">Email o nombre de Usuario</string>
+    <string name="btn_recuperar_clave">Recuperar Clave</string>
+    <string name="hint_usuario_email">Usuario/Email</string>
+    <string name="btn_iniciar_sesion">Iniciar Sesión</string>
+    <string name="alert_registro_title">Registro Exitoso</string>
+    <string name="alert_registro_message">Simulación: Cuenta creada en el sistema virtual. Ya puedes iniciar sesión.</string>
+    <string name="btn_verificar_bluetooth">Verificar Estado Bluetooth</string>
+    <string name="bluetooth_on">Estado Bluetooth: ENCENDIDO. Conexión IoT posible.</string>
+    <string name="bluetooth_off">Estado Bluetooth: APAGADO. Actívelo para la interconexión IoT.</string>
+    <string name="btn_volver_login">Volver al Login</string>
+    <string name="desc_logo_seguridad">Logo de la aplicación de seguridad IoT</string>
+</resources>
