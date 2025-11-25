@@ -13,7 +13,8 @@
         android:layout_width="156dp"
         android:layout_height="155dp"
         android:src="@mipmap/ic_launcher_foreground"
-        android:contentDescription="@string/desc_logo_seguridad"  app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/desc_logo_seguridad"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="50dp" />
@@ -59,45 +60,56 @@
         android:id="@+id/btnIniciarSesion"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/btn_iniciar_sesion"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="#9C27B0"
         android:paddingVertical="12dp"
+        android:text="@string/btn_iniciar_sesion"
         android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/inputLayoutPassword"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="32dp" />
-
-    <Button
-        android:id="@+id/btnRegistrarCuenta"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_registrar_cuenta"
-        style="@style/Widget.MaterialComponents.Button.TextButton"
-        android:textColor="@color/black"
-        app:layout_constraintTop_toBottomOf="@id/btnIniciarSesion"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/inputLayoutPassword" />
 
     <Button
         android:id="@+id/btnRecuperarClave"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#9C27B0"
+        android:paddingVertical="12dp"
         android:text="@string/btn_recuperar_clave"
-        style="@style/Widget.MaterialComponents.Button.TextButton"
-        android:textColor="@color/black"
-        app:layout_constraintTop_toBottomOf="@id/btnRegistrarCuenta"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/btnRegistrarCuenta" />
+
+    <Button
+        android:id="@+id/btnRegistrarCuenta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#9C27B0"
+        android:paddingVertical="12dp"
+        android:text="@string/btn_registrar_cuenta"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnIniciarSesion" />
 
     <Button
         android:id="@+id/btnVerificarBluetooth"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/btn_verificar_bluetooth"
+        android:layout_marginTop="16dp"
         android:backgroundTint="#00BCD4"
-        app:layout_constraintTop_toBottomOf="@id/btnRecuperarClave"
+        android:text="@string/btn_verificar_bluetooth"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnRecuperarClave" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

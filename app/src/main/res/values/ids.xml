@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="action_logout" type="id" />
+    <item name="textViewTituloNoticia" type="id" />
+    <item name="textViewContenidoNoticia" type="id" />
+</resources>

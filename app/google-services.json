@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "144346304684",
+    "project_id": "evasumiot",
+    "storage_bucket": "evasumiot.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:144346304684:android:2242790b91e5f108408f09",
+        "android_client_info": {
+          "package_name": "com.felipesaquel.evasumiot"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCm7to3sraTD0PPx5S-JNxPfhx0vyPP3Yo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

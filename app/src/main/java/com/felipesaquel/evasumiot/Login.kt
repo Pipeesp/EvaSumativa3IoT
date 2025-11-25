@@ -3,16 +3,20 @@ package com.felipesaquel.evasumiot
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.EditText // 1. NUEVA IMPORTACIÓN
+import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.bluetooth.BluetoothAdapter
+import com.google.firebase.auth.FirebaseAuth
 
 class Login : AppCompatActivity() {
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        auth = FirebaseAuth.getInstance()
 
         val btnIniciarSesion = findViewById<Button>(R.id.btnIniciarSesion)
         val btnRecuperarClave = findViewById<Button>(R.id.btnRecuperarClave)
@@ -40,6 +44,7 @@ class Login : AppCompatActivity() {
         }
     }
 
+
     private fun validarLogin(etUsuario: EditText, etContrasena: EditText) {
         val usuario = etUsuario.text.toString().trim()
         val contrasena = etContrasena.text.toString().trim()
@@ -47,37 +52,48 @@ class Login : AppCompatActivity() {
         if (usuario.isEmpty() || contrasena.isEmpty()) {
             mostrarAlerta("Error de Validación", "Debe ingresar Usuario/Email y Contraseña.")
         } else {
-            mostrarAlerta(
-                "Inicio de Sesión",
-                "El inicio de sesión fue correcto."
-            )
+            iniciarSesionFirebase(usuario, contrasena)
         }
     }
 
+
+    private fun iniciarSesionFirebase(email: String, contrasena: String) {
+        auth.signInWithEmailAndPassword(email, contrasena)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    mostrarAlerta("Inicio de Sesión Exitoso", "Acceso concedido. Iniciando Dashboard IoT.")
+                } else {
+                    val error = task.exception?.localizedMessage ?: "Ingrese sus datos de manera correcta."
+                    mostrarAlerta("Error de Autenticación", "Ingrese sus datos de manera correcta")
+                }
+            }
+    }
+
     private fun verificarEstadoBluetooth() {
-        val bluetoothAdapter: BluetoothAdapter? = BluetoothAdapter.getDefaultAdapter()
+        val bluetoothAdapter: BluetoothAdapter? = android.bluetooth.BluetoothAdapter.getDefaultAdapter()
         var titulo: String
         var mensaje: String
 
         if (bluetoothAdapter == null) {
-            titulo = "Verficación Bluetooth"
+            titulo = "Verificación Bluetooth"
             mensaje = "Este dispositivo no soporta Bluetooth."
         } else if (bluetoothAdapter.isEnabled) {
             titulo = "Verificación Bluetooth"
             mensaje = "El Bluetooth en este dispositivo esta: ENCENDIDO."
         } else {
-            titulo = "Verficiación Bluetooth"
+            titulo = "Verificación Bluetooth"
             mensaje = "El Bluetooth en este dispositivo esta: APAGADO."
         }
         mostrarAlerta(titulo, mensaje)
     }
+
 
     private fun mostrarAlerta(titulo: String, mensaje: String) {
         val builder = AlertDialog.Builder(this)
         builder.setTitle(titulo)
         builder.setMessage(mensaje)
 
-        if (titulo == "Inicio de Sesión") {
+        if (titulo == "Inicio de Sesión Exitoso") {
             builder.setPositiveButton("Aceptar") { dialog, _ ->
                 dialog.dismiss()
 

@@ -16,4 +16,9 @@
     <string name="bluetooth_off">Estado Bluetooth: APAGADO. Actívelo para la interconexión IoT.</string>
     <string name="btn_volver_login">Volver al Login</string>
     <string name="desc_logo_seguridad">Logo de la aplicación de seguridad IoT</string>
+    <string name="titulo_crear_noticia">Crear Nueva Noticia</string>
+    <string name="hint_titulo_noticia">Título de la Noticia</string>
+    <string name="hint_contenido_noticia">Escribe el contenido aquí...</string>
+    <string name="btn_publicar_noticia">Publicar Noticia</string>
+    <string name="btn_volver_home">Volver al Dashboard</string>
 </resources>

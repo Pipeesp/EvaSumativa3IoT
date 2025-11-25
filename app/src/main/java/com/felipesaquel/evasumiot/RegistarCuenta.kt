@@ -6,12 +6,16 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 
 class RegistrarCuenta : AppCompatActivity() {
+
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registrar_cuenta)
+        auth = FirebaseAuth.getInstance()
 
         val btnRegistrarCuenta = findViewById<Button>(R.id.btnRegistrarCuenta)
         val btnVolver = findViewById<Button>(R.id.btnVolver)
@@ -42,12 +46,25 @@ class RegistrarCuenta : AppCompatActivity() {
         } else if (contrasena != confirmar) {
             mostrarAlerta("Error de Validación", "Las contraseñas ingresadas no coinciden.")
         } else {
-            mostrarAlerta(
-                "Registro Exitoso",
-                "Cuenta creada en el sistema. Ya puedes iniciar sesión."
-            )
+            registrarUsuarioFirebase(email, contrasena)
         }
     }
+
+    private fun registrarUsuarioFirebase(email: String, contrasena: String) {
+        auth.createUserWithEmailAndPassword(email, contrasena)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    mostrarAlerta(
+                        "Registro Exitoso",
+                        "¡Cuenta creada en Firebase! Presione Aceptar para iniciar sesión."
+                    )
+                } else {
+                    val error = task.exception?.localizedMessage ?: "Error desconocido al registrar."
+                    mostrarAlerta("Error de Firebase", error)
+                }
+            }
+    }
+
 
     private fun mostrarAlerta(titulo: String, mensaje: String) {
         val builder = AlertDialog.Builder(this)

@@ -12,25 +12,18 @@ class RecuperarClave : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recuperar_clave)
-
         val btnRecuperarClave = findViewById<Button>(R.id.btnRecuperarClave)
-
         val etEmailUsuario = findViewById<EditText>(R.id.editTextText3)
-
         val btnVolver = findViewById<Button>(R.id.btnVolver)
-
         btnRecuperarClave.setOnClickListener {
             validarRecuperacion(etEmailUsuario)
         }
-
         btnVolver.setOnClickListener {
             finish()
         }
     }
-
     private fun validarRecuperacion(etEmailUsuario: EditText) {
         val emailUsuario = etEmailUsuario.text.toString().trim()
-
         if (emailUsuario.isEmpty()) {
             mostrarAlerta("Error de Validación", "Debe ingresar su Email o Nombre de Usuario.")
         } else {
@@ -40,7 +33,6 @@ class RecuperarClave : AppCompatActivity() {
             )
         }
     }
-
     private fun mostrarAlerta(titulo: String, mensaje: String) {
         val builder = AlertDialog.Builder(this)
         builder.setTitle(titulo)

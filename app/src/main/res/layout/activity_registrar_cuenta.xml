@@ -5,23 +5,28 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    tools:context=".RegistrarCuenta">
+    android:padding="32dp" tools:context=".RegistrarCuenta">
 
-    <!-- CAMPO NOMBRE -->
-    <EditText
-        android:id="@+id/editTextText4"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/hint_nombre"
-        android:inputType="text"
-        android:minHeight="48dp"
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="156dp"
+        android:layout_height="155dp"
+        android:src="@mipmap/ic_launcher_foreground"
+        android:contentDescription="@string/desc_logo_seguridad"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="50dp" />
+        android:layout_marginTop="30dp" /> <EditText
+    android:id="@+id/editTextText4"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:hint="@string/hint_nombre"
+    android:inputType="text"
+    android:minHeight="48dp"
+    app:layout_constraintTop_toBottomOf="@id/imageView4" app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginTop="32dp" />
 
-    <!-- CAMPO EMAIL -->
     <EditText
         android:id="@+id/editTextText5"
         android:layout_width="0dp"
@@ -34,7 +39,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp" />
 
-    <!-- CAMPO CONTRASEÑA -->
     <EditText
         android:id="@+id/editTextText6"
         android:layout_width="0dp"
@@ -47,7 +51,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp" />
 
-    <!-- CAMPO CONFIRMAR CONTRASEÑA -->
     <EditText
         android:id="@+id/editTextText7"
         android:layout_width="0dp"
@@ -60,18 +63,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp" />
 
-    <!-- Botón de Acción (Registrar Cuenta) -->
     <Button
         android:id="@+id/btnRegistrarCuenta"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/btn_registrar_cuenta"
+        android:backgroundTint="#9C27B0"
+        android:paddingVertical="12dp"
+        android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@id/editTextText7"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="32dp" />
 
-    <!-- *** BOTÓN VOLVER (CORREGIDO: visible en la parte inferior) *** -->
     <Button
         android:id="@+id/btnVolver"
         android:layout_width="wrap_content"
@@ -83,8 +87,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"
-
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.0" /> <!-- Asegura que priorice la posición superior -->
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
